@@ -1,7 +1,8 @@
 # reference_api
 Reference Api on Node.js &amp; Sequelize
-Install
+
+## Install
 npm i
 
-Use 
+## Use 
 npm start
