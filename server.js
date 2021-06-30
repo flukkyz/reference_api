@@ -6,7 +6,8 @@ const cors = require('cors')
 const { notFound, handleError } = require('./middlewares')
 const routes = require('./routes')
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
+const apiDir = process.env.API_DIR || '/api';
 
 const app = express()
 
@@ -17,7 +18,7 @@ app.use(express.urlencoded({
   extended: false
 }))
 
-app.use('/api',routes)
+app.use(apiDir,routes)
 
 app.use(notFound)
 app.use(handleError)
