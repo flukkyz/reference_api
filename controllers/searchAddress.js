@@ -31,7 +31,6 @@ module.exports = {
       wordcut.init(__dirname + '/../resources/dictionary.txt');
       const cut = wordcut.cut(`${q} ${swapLangText(q)}`)
       const cutLists = cut.split('|').filter(ele => ele.trim() !== '').map(ele => ele.trim())
-      console.log(cutLists);
 
       const bindVal = {
         qe: q,

@@ -8,3 +8,5 @@ services:
                 restart: always
                 env_file:
                         - .env
+                volumes:
+                        - "../docker_volume_logs/${APP_NAME}:/app/logs"
