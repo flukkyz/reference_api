@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Amphure.init(
     {
-      code: DataTypes.STRING,
+      code: DataTypes.INTEGER,
       name_th: DataTypes.STRING,
       name_en: DataTypes.STRING,
       province_id: DataTypes.INTEGER
