@@ -9,6 +9,7 @@ morgan.token('date', function() {
 
 const accessLogStream = rfs.createStream('access.log', {
   size: "10M",
+  maxFiles: 30,
   interval: '1d',
   path: path.join(__dirname, '../logs')
 })
