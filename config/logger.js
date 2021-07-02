@@ -2,12 +2,10 @@ const morgan = require('morgan')
 const path = require('path')
 const rfs = require('rotating-file-stream')
 
-// if(process.env.NODE_ENV === 'development'){
-//   morgan.token('date', () => {
-//     const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
-//     return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
-//   });
-// }
+morgan.token('date', () => {
+  const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+  return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
+});
 
 morgan.token('level', () => {
   return 'info';
