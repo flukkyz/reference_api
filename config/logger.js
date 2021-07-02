@@ -2,7 +2,7 @@ const morgan = require('morgan')
 const path = require('path')
 const rfs = require('rotating-file-stream')
 
-morgan.token('level', () => {
+morgan.token('level', (req, res) => {
   return 'info';
 });
 
