@@ -1,4 +1,7 @@
 const db = require('../models')
+const District = db.District
+const Amphure = db.Amphure
+const Province = db.Province
 const Geography = db.Geography
 const Op = db.Sequelize.Op;
 
@@ -24,6 +27,25 @@ module.exports = {
     const id = req.params.id
     try {
       const data = await Geography.findByPk(id)
+      return data ? res.json(data) : res.status(404).json({message: 'Not Found'})
+    } catch (e) {
+      return res.status(500).json({
+        message: 'Cannot get data from database.'
+      })
+    }
+  },
+  showAll: async (req, res) => {
+    const id = req.params.id
+    try {
+      const data = await Geography.findByPk(id,{
+        include: {
+          model: Province,
+          include: {
+            model: Amphure,
+            include: District
+          }
+        }
+      })
       return data ? res.json(data) : res.status(404).json({message: 'Not Found'})
     } catch (e) {
       return res.status(500).json({

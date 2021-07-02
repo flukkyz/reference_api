@@ -8,6 +8,7 @@ const path = '/geographies'
 
 router.get(`${path}/`, geographyController.index)
 router.get(`${path}/:id`,  checkParamId, geographyController.show)
+router.get(`${path}/:id/all`,  checkParamId, geographyController.showAll)
 
 
 module.exports = router
