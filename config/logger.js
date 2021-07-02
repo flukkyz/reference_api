@@ -2,11 +2,15 @@ const morgan = require('morgan')
 const path = require('path')
 const rfs = require('rotating-file-stream')
 
-morgan.token('date', () => {
-  // const tz = new Date().toLocaleString("en-US", {timeZone: 'Asia/Bangkok',})
-  // const p = new Date(tz).toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
-  const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
-  return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
+if(process.env.NODE_ENV === 'development'){
+  morgan.token('date', () => {
+    const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+    return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
+  });
+}
+
+morgan.token('level', () => {
+  return 'info';
 });
 
 const accessLogStream = rfs.createStream('access.log', {
@@ -16,4 +20,4 @@ const accessLogStream = rfs.createStream('access.log', {
   path: path.join(__dirname, '../logs')
 })
 
-module.exports = morgan('combined', { stream: accessLogStream })
+module.exports = morgan(':level :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms', { stream: accessLogStream })
