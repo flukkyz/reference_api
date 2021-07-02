@@ -44,7 +44,6 @@ module.exports = {
   },
   show: async (req, res) => {
     const id = req.params.id
-    console.log(id);
     try {
       const data = await Province.findByPk(id)
       return data ?  res.json(data) : res.status(404).json({message: 'Not Found'})
@@ -56,7 +55,6 @@ module.exports = {
   },
   showAll: async (req, res) => {
     const id = req.params.id
-    console.log(id);
     try {
       const data = await Province.findByPk(id,{
         include: [
