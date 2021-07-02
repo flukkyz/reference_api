@@ -9,4 +9,4 @@ services:
                 env_file:
                         - .env
                 volumes:
-                        - "../docker_volume_logs/${APP_NAME}:/app/logs"
+                        - "../../docker_volumes/${APP_NAME}/logs:/app/logs"
