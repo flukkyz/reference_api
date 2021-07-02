@@ -41,9 +41,10 @@ module.exports = {
   },
   show: async (req, res) => {
     const id = req.params.id
+    console.log(id);
     try {
       const data = await Province.findByPk(id)
-      return data ? data : res.status(404).json({message: 'Not Found'})
+      return data ?  res.json(data) : res.status(404).json({message: 'Not Found'})
     } catch (e) {
       return res.status(500).json({
         message: 'Cannot get data from database.'

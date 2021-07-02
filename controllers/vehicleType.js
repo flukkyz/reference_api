@@ -25,7 +25,7 @@ module.exports = {
     const id = req.params.id
     try {
       const data = await VehicleType.findByPk(id)
-      return data ? data : res.status(404).json({message: 'Not Found'})
+      return data ? res.json(data) : res.status(404).json({message: 'Not Found'})
     } catch (e) {
       return res.status(500).json({
         message: 'Cannot get data from database.'
