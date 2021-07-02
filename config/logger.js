@@ -3,8 +3,9 @@ const path = require('path')
 const rfs = require('rotating-file-stream')
 
 morgan.token('date', () => {
-  const tz = new Date().toLocaleString("en-US", {timeZone: 'Asia/Bangkok',})
-  const p = new Date(tz).toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+  // const tz = new Date().toLocaleString("en-US", {timeZone: 'Asia/Bangkok',})
+  // const p = new Date(tz).toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
+  const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
   return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
 });
 
