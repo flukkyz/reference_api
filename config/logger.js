@@ -5,11 +5,11 @@ const rfs = require('rotating-file-stream')
 morgan.token('date', () => {
   const p = new Date().toString().replace(/[A-Z]{3}\+/,'+').split(/ /);
   return( p[2]+'/'+p[1]+'/'+p[3]+':'+p[4]+' '+p[5] );
-});
+})
 
-morgan.token('level', () => {
-  return 'info';
-});
+morgan.token('level', (req,res) => {
+  return res.statusCode < 400 ? 'info' : 'error'
+})
 
 const accessLogStream = rfs.createStream('access.log', {
   size: "10M",

@@ -178,12 +178,17 @@ module.exports = {
       sql += order
       sql += limit
 
-
-      const query = await db.sequelize.query(sql,{
-        bind: bindVal,
-        type: QueryTypes.SELECT
-      })
-      return res.json(query)
+      try {
+        const query = await db.sequelize.query(sql,{
+          bind: bindVal,
+          type: QueryTypes.SELECT
+        })
+        return res.json(query)
+      } catch (e) {
+        return res.status(500).json({
+          message: 'Cannot get data from database.'
+        })
+      }
     }
     return res.json([])
   }
