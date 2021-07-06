@@ -13,7 +13,7 @@ module.exports = {
     ] } : null
 
     try {
-      const lists = await VehicleType.findAll({ where })
+      const lists = await VehicleType.findAll({ where, attributes: {exclude: ['active']} })
       return res.json(lists)
     } catch (e) {
       return res.status(500).json({
@@ -24,7 +24,7 @@ module.exports = {
   show: async (req, res) => {
     const id = req.params.id
     try {
-      const data = await VehicleType.findByPk(id)
+      const data = await VehicleType.findByPk(id,{ attributes: {exclude: ['active']} })
       return data ? res.json(data) : res.status(404).json({message: 'Not Found'})
     } catch (e) {
       return res.status(500).json({
