@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>MIS Common References API</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
     background-color: #f7f7f9;
   }
 
-  .lists,.show{
+  .lists,.show,.show-all{
     margin-top: 20px;
   }
 
@@ -42,10 +42,34 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(0,0,0,.1);
   }
+  .btn-to-top{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    text-align: center;
+    font-size: 10px;
+    background-color: rgba(199, 199, 255, 0.301);
+    padding: 15px;
+    border-radius: 50%;
+  }
+  .btn-to-top:hover{
+    background-color: rgb(220, 220, 252);
+  }
+  .btn-to-top > a{
+    color: #000;
+    font-weight: bold;
+  }
 </style>
 
 <body>
-
+  <div id="top"/>
+  <div class="btn-to-top">
+    <a href="#top" type="button" class="rounded-circle">
+      Back
+      <br>
+      To Top
+    </a>
+  </div>
   <div class="jumbotron text-center">
     <h1>MIS Common References API</h1>
     <p>Public Common reference api for MIS developer and CMU developer</p>
@@ -63,30 +87,30 @@
           </a>
         </li>
         <li>
-          <a href="#search-addresses">
+          <a href="#addresses">
             <h5>
-              Addresses(การค้นหาที่อยู่)
+              Addresses(ที่อยู่)
             </h5>
           </a>
           <ul>
             <li>
+              <a href="#search-addresses">
+                <h5>
+                  Search Addresses(การค้นหาที่อยู่)
+                </h5>
+              </a>
+            </li>
+            <li>
               <a href="#sub-districts">
                 <h5>
-                  Subdistrict(ตำบล)
+                  Subdistricts(ตำบล/แขวง)
                 </h5>
               </a>
             </li>
             <li>
               <a href="#districts">
                 <h5>
-                  Districts(อำเภอ)
-                </h5>
-              </a>
-            </li>
-            <li>
-              <a href="#provinces">
-                <h5>
-                  Provinces(จังหวัด)
+                  Districts(อำเภอ/เขต)
                 </h5>
               </a>
             </li>
@@ -321,7 +345,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/academic-positions">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/academic-positions/3">
               https://mis-api.cmu.ac.th/ref/api/academic-positions/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -417,6 +441,1743 @@
     title_th: "ผศ.", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อย่อภาษาไทย</span>
     title_en: "Asst. Prof.", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อย่อภาษาอังกฤษ</span>
     description: "ตำแหน่งทางวิชาการ" &nbsp;<span class="text-muted font-weight-light">// (String) คำอธิบายเพิ่มเติม</span>
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="addresses" class="api-section">
+      <h2>
+        Addresses(ที่อยู่)
+      </h2>
+    </div>
+    <div id="search-addresses" class="api-section">
+      <h3>
+        Search Addresses(การค้นหาที่อยู่)
+      </h3>
+      <div class="lists">
+        <h4>
+          Search Addresses by Subdistricts, Districts, Provinces and Zipcodes
+        </h4>
+        <p class="mb-1">
+          ค้นหาและ แสดงข้อมูลรายการที่อยู่ โดยค้นหาจากตำบล/แขวง, อำเภอ/เขต, จังหวัด และ รหัสไปรษณีย์
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/search-addresses?q=สันท">
+              https://mis-api.cmu.ac.th/ref/api/search-addresses?q=<span class="badge badge-info">q</span>
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">q</span>
+                    </td>
+                    <td class="text-center">
+                      String
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      ค้นหาที่อยู่จากตำบล/แขวง, อำเภอ/เขต, จังหวัด และ รหัสไปรษณีย์
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">size</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                      50
+                    </td>
+                    <td>
+                      จำนวนสูงสุดที่แสดง
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  [Array]
+                </p>
+                <div class="card-body highlight">
+                  <code>
+                    <pre class="font-weight-bold">
+  [
+    {
+      district_id: 501401, &nbsp;<span class="text-muted font-weight-light">// (int) ID ตำบล/แขวง</span>
+      amphure_id: 581, &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+      province_id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+      district_th: "สันทรายหลวง", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+      district_en: "San Sai Luang", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+      amphure_th: "สันทราย", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+      amphure_en: "San Sai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+      province_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+      province_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+      geography_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาไทย</span>
+      geography_en: "Northern", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาอังกฤษ</span>
+      zip_code: 50210, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+      amphure_code: 5014, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+      province_code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+      district_short_prefix: "ต.", &nbsp;<span class="text-muted font-weight-light">// (int) ตัวย่อตำบล/แขวง</span>
+      amphure_short_prefix: "อ.", &nbsp;<span class="text-muted font-weight-light">// (int) ตัวย่ออำเภอ/เขต</span>
+      province_short_prefix: "จ.", &nbsp;<span class="text-muted font-weight-light">// (int) ตัวย่อจังหวัด</span>
+      district_prefix: "ตำบล/แขวง", &nbsp;<span class="text-muted font-weight-light">// (int) ประเภทตำบล/แขวง</span>
+      amphure_prefix: "อำเภอ/เขต", &nbsp;<span class="text-muted font-weight-light">// (int) ประเภทอำเภอ/เขต</span>
+      province_prefix: "จังหวัด", &nbsp;<span class="text-muted font-weight-light">// (int) ประเภทจังหวัด</span>
+      short_th: "ต.สันทรายหลวง อ.สันทราย จ.เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดสั้นภาษาไทย</span>
+      short_en: "San Sai Luang, San Sai, Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดสั้นภาษาอังกฤษ</span>
+      medium_th: "ต.สันทรายหลวง อ.สันทราย จ.เชียงใหม่ 50210", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดกลางภาษาไทย</span>
+      medium_en: "San Sai Luang, San Sai, Chiang Mai 50210", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดกลางภาษาอังกฤษ</span>
+      long_th: "ตำบล/แขวงสันทรายหลวง อำเภอ/เขตสันทราย จังหวัดเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดยาวภาษาไทย</span>
+      long_en: "San Sai Luang sub-district, San Sai district, Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่ขนาดยาวภาษาอังกฤษ</span>
+      full_th: "ตำบล/แขวงสันทรายหลวง อำเภอ/เขตสันทราย จังหวัดเชียงใหม่ 50210", &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่แบบเต็มภาษาไทย</span>
+      full_en: "San Sai Luang sub-district, San Sai district, Chiang Mai 50210" &nbsp;<span class="text-muted font-weight-light">// (int) ที่อยู่แบบเต็มภาษาอังกฤษ</span>
+    },...,
+  ]
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="sub-districts" class="api-section">
+      <h3>
+        Subdistricts(ตำบล/แขวง)
+      </h3>
+      <div class="lists">
+        <h4>
+          Lists of Subdistrict
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลรายการตำบล/แขวง
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/districts">
+              https://mis-api.cmu.ac.th/ref/api/districts
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">q</span>
+                    </td>
+                    <td class="text-center">
+                      String
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      ค้นหาตำบล/แขวง
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">amphure_id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลอำเภอ/เขต
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  [Array]
+                </p>
+                <div class="card-body highlight">
+                  <code>
+                    <pre class="font-weight-bold">
+  [
+    {
+      id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+      name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+      name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+      amphure_id: 568 &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+    },...,
+  ]
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show">
+        <h4>
+          Subdistrict by ID
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลตำบล/แขวงตาม <span class="badge badge-info">id</span>
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/districts/500101">
+              https://mis-api.cmu.ac.th/ref/api/districts/<span class="badge badge-info">id</span>
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลตำบล/แขวง
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+    name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+    name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+    amphure_id: 568 &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show-all">
+        <h4>
+          Subdistrict by ID and parent objects
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลตำบล/แขวงตาม <span class="badge badge-info">id</span> และข้อมูลระดับสูงกว่าตำบล/แขวง
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/districts/500101/all">
+              https://mis-api.cmu.ac.th/ref/api/districts/<span class="badge badge-info">id</span>/all
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลตำบล/แขวง
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+    name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+    name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+    amphure_id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+
+    Amphure: { &nbsp;<span class="text-muted font-weight-light">// {Object} อำเภอ/เขต</span>
+      id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID อำเภอ/เขต</span>
+      code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+      name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+      name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+      province_id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+      
+      Province: { &nbsp;<span class="text-muted font-weight-light">// {Object} จังหวัด</span>
+        id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID จังหวัด</span>
+        code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+        name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+        name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+        geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+  
+        Geography: { &nbsp;<span class="text-muted font-weight-light">// {Object} ภูมิภาค</span>
+          id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ภูมิภาค</span>
+          name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาไทย</span>
+          name_en: "Northern" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาอังกฤษ</span>
+        }
+  
+      }
+
+    }
+    
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="districts" class="api-section">
+      <h3>
+        Districts(อำเภอ/เขต)
+      </h3>
+      <div class="lists">
+        <h4>
+          Lists of District
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลรายการอำเภอ/เขต
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/amphures">
+              https://mis-api.cmu.ac.th/ref/api/amphures
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">q</span>
+                    </td>
+                    <td class="text-center">
+                      String
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      ค้นหาอำเภอ/เขต
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">province_id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลจังหวัด
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  [Array]
+                </p>
+                <div class="card-body highlight">
+                  <code>
+                    <pre class="font-weight-bold">
+  [
+    {
+      id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+      name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+      name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+      province_id: 38 &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+    },...,
+  ]
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show">
+        <h4>
+          District by ID
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลอำเภอ/เขตตาม <span class="badge badge-info">id</span>
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/amphures/568">
+              https://mis-api.cmu.ac.th/ref/api/amphures/<span class="badge badge-info">id</span>
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลอำเภอ/เขต
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+    name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+    name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+    province_id: 38 &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show-all">
+        <h4>
+          District by ID and child & parent objects
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลอำเภอ/เขตตาม <span class="badge badge-info">id</span> ข้อมูลย่อยต่างๆ และข้อมูลระดับสูงกว่าอำเภอ/เขต
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/amphures/568/all">
+              https://mis-api.cmu.ac.th/ref/api/amphures/<span class="badge badge-info">id</span>/all
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลอำเภอ/เขต
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+    name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+    name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+    province_id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+
+    Districts: [ &nbsp;<span class="text-muted font-weight-light">// [Array] ตำบล/แขวง</span>
+      {
+        id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ตำบล/แขวง</span>
+        zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+        name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+        name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+        amphure_id: 568 &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+      },...,
+    ],
+
+    Province: { &nbsp;<span class="text-muted font-weight-light">// {Object} จังหวัด</span>
+      id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID จังหวัด</span>
+      code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+      name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+      name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+      geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+
+      Geography: { &nbsp;<span class="text-muted font-weight-light">// {Object} ภูมิภาค</span>
+        id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ภูมิภาค</span>
+        name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาไทย</span>
+        name_en: "Northern" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาอังกฤษ</span>
+      }
+
+    }
+
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="provinces" class="api-section">
+      <h3>
+        Provinces(จังหวัด)
+      </h3>
+      <div class="lists">
+        <h4>
+          Lists of Province
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลรายการจังหวัด
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/provinces">
+              https://mis-api.cmu.ac.th/ref/api/provinces
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">q</span>
+                    </td>
+                    <td class="text-center">
+                      String
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      ค้นหาจังหวัด
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">geography_id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลภูมิภาค
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  [Array]
+                </p>
+                <div class="card-body highlight">
+                  <code>
+                    <pre class="font-weight-bold">
+  [
+    {
+      id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+      name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+      name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+      geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+    },...,
+  ]
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show">
+        <h4>
+          Province by ID
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลจังหวัดตาม <span class="badge badge-info">id</span>
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/provinces/38">
+              https://mis-api.cmu.ac.th/ref/api/provinces/<span class="badge badge-info">id</span>
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลจังหวัด
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+    name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+    name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+    geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show-all">
+        <h4>
+          Province by ID and child & parent objects
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลจังหวัดตาม <span class="badge badge-info">id</span> ข้อมูลย่อยต่างๆ และข้อมูลระดับสูงกว่าจังหวัด
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/provinces/38/all">
+              https://mis-api.cmu.ac.th/ref/api/provinces/<span class="badge badge-info">id</span>/all
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลจังหวัด
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+    name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+    name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+    geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+
+    Amphures: [ &nbsp;<span class="text-muted font-weight-light">// [Array] อำเภอ/เขต</span>
+      {
+        id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID อำเภอ/เขต</span>
+        code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+        name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+        name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+        province_id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+
+        Districts: [ &nbsp;<span class="text-muted font-weight-light">// [Array] ตำบล/แขวง</span>
+          {
+            id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ตำบล/แขวง</span>
+            zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+            name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+            name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+            amphure_id: 568 &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+          },...,
+        ]
+
+      },...,
+    ],
+
+    Geography: { &nbsp;<span class="text-muted font-weight-light">// {Object} ภูมิภาค</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ภูมิภาค</span>
+      name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาไทย</span>
+      name_en: "Northern", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาอังกฤษ</span>
+    }
+
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="regions" class="api-section">
+      <h3>
+        Regions(ภูมิภาค)
+      </h3>
+      <div class="lists">
+        <h4>
+          Lists of Region
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลรายการภูมิภาค
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/geographies">
+              https://mis-api.cmu.ac.th/ref/api/geographies
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">q</span>
+                    </td>
+                    <td class="text-center">
+                      String
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      ค้นหาภูมิภาค
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  [Array]
+                </p>
+                <div class="card-body highlight">
+                  <code>
+                    <pre class="font-weight-bold">
+  [
+    {
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Northern" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    },...,
+  ]
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show">
+        <h4>
+          Region by ID
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลภูมิภาคตาม <span class="badge badge-info">id</span>
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/geographies/1">
+              https://mis-api.cmu.ac.th/ref/api/geographies/<span class="badge badge-info">id</span>
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลภูมิภาค
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Northern" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+  }
+</pre>
+                  </code>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="show-all">
+        <h4>
+          Region by ID and child objects
+        </h4>
+        <p class="mb-1">
+          แสดงข้อมูลภูมิภาคตาม <span class="badge badge-info">id</span> และข้อมูลย่อยต่างๆในภูมิภาค
+        </p>
+        <ul class="list-unstyled ml-4">
+          <li>
+            <span class="font-weight-bold">
+              URL
+            </span>
+            &nbsp;
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/geographies/1/all">
+              https://mis-api.cmu.ac.th/ref/api/geographies/<span class="badge badge-info">id</span>/all
+            </a>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              Method
+            </span>
+            &nbsp;
+            <span class="badge badge-primary">GET</span>
+          </li>
+          <li>
+            <span class="font-weight-bold">
+              URL Params
+            </span>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      Name
+                    </th>
+                    <th class="text-center">
+                      Type
+                    </th>
+                    <th class="text-center">
+                      Required
+                    </th>
+                    <th class="text-center">
+                      Default
+                    </th>
+                    <th class="text-center">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">id</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                      ✓
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td>
+                      <span class="badge badge-info">id</span>
+                      ข้อมูลภูมิภาค
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p class="font-weight-bold mb-0">
+              Responses
+            </p>
+            <ul>
+              <li>
+                <span class="font-weight-bold">
+                  Status Code
+                </span>
+                &nbsp;
+                200
+              </li>
+              <li>
+                <span class="font-weight-bold">
+                  Content-Type
+                </span>
+                &nbsp;
+                application/json
+              </li>
+              <li>
+                <p class="mb-0">
+                  <span class="font-weight-bold">
+                    Content
+                  </span>
+                  &nbsp;
+                  {Object}
+                </p>
+                <div class="card-body highlight">
+                  <code>
+<pre class="font-weight-bold">
+  {
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "ภาคเหนือ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาไทย</span>
+    name_en: "Northern", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อภูมิภาคภาษาอังกฤษ</span>
+
+    Provinces: [ &nbsp;<span class="text-muted font-weight-light">// [Array] จังหวัด</span>
+      {
+        id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID จังหวัด</span>
+        code: 50, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสจังหวัด</span>
+        name_th: "เชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาไทย</span>
+        name_en: "Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อจังหวัดภาษาอังกฤษ</span>
+        geography_id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) ID ภูมิภาค</span>
+
+        Amphures: [ &nbsp;<span class="text-muted font-weight-light">// [Array] อำเภอ/เขต</span>
+          {
+            id: 568, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID อำเภอ/เขต</span>
+            code: 5001, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสอำเภอ/เขต</span>
+            name_th: "เมืองเชียงใหม่", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาไทย</span>
+            name_en: "Mueang Chiang Mai", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออำเภอ/เขตภาษาอังกฤษ</span>
+            province_id: 38, &nbsp;<span class="text-muted font-weight-light">// (int) ID จังหวัด</span>
+
+            Districts: [ &nbsp;<span class="text-muted font-weight-light">// [Array] ตำบล/แขวง</span>
+              {
+                id: 500101, &nbsp;<span class="text-muted font-weight-light">// (int) PK > ID ตำบล/แขวง</span>
+                zip_code: 50200, &nbsp;<span class="text-muted font-weight-light">// (int) รหัสไปรษณีย์</span>
+                name_th: "ศรีภูมิ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาไทย</span>
+                name_en: "Si Phum", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อตำบล/แขวงภาษาอังกฤษ</span>
+                amphure_id: 568 &nbsp;<span class="text-muted font-weight-light">// (int) ID อำเภอ/เขต</span>
+              },...,
+            ]
+
+          },...,
+        ]
+
+      },...,
+    ]
+
   }
 </pre>
                   </code>
@@ -533,9 +2294,9 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "หืดหอบ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "asthma" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "หืดหอบ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "asthma" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -559,7 +2320,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/congenital-diseases">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/congenital-diseases/4">
               https://mis-api.cmu.ac.th/ref/api/congenital-diseases/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -648,9 +2409,9 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "หืดหอบ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "asthma" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "หืดหอบ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "asthma" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -767,9 +2528,9 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 12, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "จีน", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Chinese/Mandarin Chinese" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 12, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "จีน", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Chinese/Mandarin Chinese" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -793,7 +2554,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/languages">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/languages/12">
               https://mis-api.cmu.ac.th/ref/api/languages/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -882,9 +2643,9 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 12, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "จีน", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Chinese/Mandarin Chinese" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 12, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "จีน", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Chinese/Mandarin Chinese" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -1001,10 +2762,10 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 9, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "code": "40", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
-      "name_th": "ปริญญาตรี", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Bachelor Degree" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 9, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      code: "40", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
+      name_th: "ปริญญาตรี", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Bachelor Degree" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -1028,7 +2789,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/level-educations">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/level-educations/9">
               https://mis-api.cmu.ac.th/ref/api/level-educations/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -1117,10 +2878,10 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 9, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "code": "40", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
-    "name_th": "ปริญญาตรี", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Bachelor Degree" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 9, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: "40", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
+    name_th: "ปริญญาตรี", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Bachelor Degree" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -1237,9 +2998,9 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "โสด", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Single" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "โสด", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Single" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -1263,7 +3024,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/marital-statuses">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/marital-statuses/1">
               https://mis-api.cmu.ac.th/ref/api/marital-statuses/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -1352,9 +3113,9 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "โสด", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Single" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "โสด", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Single" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -1471,9 +3232,9 @@
 <pre class="font-weight-bold">
   [
     {
-      "id": 3, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "ผ่านการเกณฑ์ทหาร", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Passed" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 3, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "ผ่านการเกณฑ์ทหาร", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Passed" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -1497,7 +3258,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/military-statuses">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/military-statuses/3">
               https://mis-api.cmu.ac.th/ref/api/military-statuses/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -1586,9 +3347,9 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 3, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "ผ่านการเกณฑ์ทหาร", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Passed" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 3, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "ผ่านการเกณฑ์ทหาร", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Passed" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -1705,13 +3466,13 @@
 <pre class="font-weight-bold">
   [
     {
-      "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "nation_id": "TH", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 2 อักษร</span>
-      "country_id": "THA", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 3 อักษร</span>
-      "nation_name_th": "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาไทย</span>
-      "nation_name_en": "Thai", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาอังกฤษ</span>
-      "country_name_th": "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาไทย</span>
-      "country_name_en": "Thailand" &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาอังกฤษ</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      nation_id: "TH", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 2 อักษร</span>
+      country_id: "THA", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 3 อักษร</span>
+      nation_name_th: "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาไทย</span>
+      nation_name_en: "Thai", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาอังกฤษ</span>
+      country_name_th: "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาไทย</span>
+      country_name_en: "Thailand" &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -1735,7 +3496,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/nationalities">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/nationalities/1">
               https://mis-api.cmu.ac.th/ref/api/nationalities/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -1824,13 +3585,13 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "nation_id": "TH", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 2 อักษร</span>
-    "country_id": "THA", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 3 อักษร</span>
-    "nation_name_th": "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาไทย</span>
-    "nation_name_en": "Thai", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาอังกฤษ</span>
-    "country_name_th": "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาไทย</span>
-    "country_name_en": "Thailand" &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาอังกฤษ</span>
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    nation_id: "TH", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 2 อักษร</span>
+    country_id: "THA", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสย่อ 3 อักษร</span>
+    nation_name_th: "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาไทย</span>
+    nation_name_en: "Thai", &nbsp;<span class="text-muted font-weight-light">// (String) สัญชาติภาษาอังกฤษ</span>
+    country_name_th: "ไทย", &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาไทย</span>
+    country_name_en: "Thailand" &nbsp;<span class="text-muted font-weight-light">// (String) ประเทศภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -1947,11 +3708,11 @@
 <pre class="font-weight-bold">
   [
     {
-      "id": 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "code": "004", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
-      "name": "นางสาว", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าเต็ม</span>
-      "title": "น.ส.", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าย่อ</span>
-      "dpa_code": "4" &nbsp;<span class="text-muted font-weight-light">// (String) ID ในข้อมูลของ สกอ.</span>
+      id: 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      code: "004", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
+      name: "นางสาว", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าเต็ม</span>
+      title: "น.ส.", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าย่อ</span>
+      dpa_code: "4" &nbsp;<span class="text-muted font-weight-light">// (String) ID ในข้อมูลของ สกอ.</span>
     },...,
   ]
 </pre>
@@ -1975,7 +3736,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/prefix-names">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/prefix-names/4">
               https://mis-api.cmu.ac.th/ref/api/prefix-names/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -2064,11 +3825,11 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "code": "004", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
-    "name": "นางสาว", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าเต็ม</span>
-    "title": "น.ส.", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าย่อ</span>
-    "dpa_code": "4" &nbsp;<span class="text-muted font-weight-light">// (String) ID ในข้อมูลของ สกอ.</span>
+    id: 4, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: "004", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสจาก สกอ.</span>
+    name: "นางสาว", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าเต็ม</span>
+    title: "น.ส.", &nbsp;<span class="text-muted font-weight-light">// (String) คำนำหน้าย่อ</span>
+    dpa_code: "4" &nbsp;<span class="text-muted font-weight-light">// (String) ID ในข้อมูลของ สกอ.</span>
   }
 </pre>
                   </code>
@@ -2185,9 +3946,9 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "พุทธ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Buddha" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "พุทธ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Buddha" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -2211,7 +3972,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/religions">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/religions/1">
               https://mis-api.cmu.ac.th/ref/api/religions/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -2300,9 +4061,9 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "พุทธ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Buddha" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "พุทธ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Buddha" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -2419,10 +4180,10 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "code": "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
-      "name_th": "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      id: 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      code: "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
+      name_th: "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
     },...,
   ]
 </pre>
@@ -2446,7 +4207,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/thai-banks">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/thai-banks/5">
               https://mis-api.cmu.ac.th/ref/api/thai-banks/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -2535,10 +4296,10 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "code": "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
-    "name_th": "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    id: 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    code: "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
+    name_th: "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
   }
 </pre>
                   </code>
@@ -2655,10 +4416,10 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "ปวาเกอญอ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "Karen", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
-      "other_name": "กะเหรี่ยง" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "ปวาเกอญอ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "Karen", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      other_name: "กะเหรี่ยง" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
     },...,
   ]
 </pre>
@@ -2682,7 +4443,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/thai-tribes">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/thai-tribes/1">
               https://mis-api.cmu.ac.th/ref/api/thai-tribes/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -2771,10 +4532,10 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "ปวาเกอญอ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "Karen", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
-    "other_name": "กะเหรี่ยง" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "ปวาเกอญอ", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "Karen", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    other_name: "กะเหรี่ยง" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
   }
 </pre>
                   </code>
@@ -2891,11 +4652,11 @@
                     <pre class="font-weight-bold">
   [
     {
-      "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-      "name_th": "รถเก๋ง", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      "name_en": "car", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
-      "other_name": null, &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
-      "unit": "คัน" &nbsp;<span class="text-muted font-weight-light">// (String) ประเภทจำนวน</span>
+      id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+      name_th: "รถเก๋ง", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+      name_en: "car", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      other_name: null, &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
+      unit: "คัน" &nbsp;<span class="text-muted font-weight-light">// (String) ประเภทจำนวน</span>
     },...,
   ]
 </pre>
@@ -2919,7 +4680,7 @@
               URL
             </span>
             &nbsp;
-            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/vehicle-types">
+            <a target="_blank" href="https://mis-api.cmu.ac.th/ref/api/vehicle-types/1">
               https://mis-api.cmu.ac.th/ref/api/vehicle-types/<span class="badge badge-info">id</span>
             </a>
           </li>
@@ -3008,11 +4769,11 @@
                   <code>
 <pre class="font-weight-bold">
   {
-    "id": 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
-    "name_th": "รถเก๋ง", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    "name_en": "car", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
-    "other_name": null, &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
-    "unit": "คัน" &nbsp;<span class="text-muted font-weight-light">// (String) ประเภทจำนวน</span>
+    id: 1, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
+    name_th: "รถเก๋ง", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
+    name_en: "car", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    other_name: null, &nbsp;<span class="text-muted font-weight-light">// (String) ชื่ออื่นๆ</span>
+    unit: "คัน" &nbsp;<span class="text-muted font-weight-light">// (String) ประเภทจำนวน</span>
   }
 </pre>
                   </code>
