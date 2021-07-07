@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 
 const { notFound, handleError } = require('./middlewares')
 const routes = require('./routes')
@@ -19,6 +20,12 @@ app.use(express.urlencoded({
 }))
 
 app.use(apiDir,routes)
+
+app.get('/doc',(req,res) => {
+  res.sendFile(path.join(__dirname,'doc.html'))
+})
+
+app.use(express.static('public'))
 
 app.use(notFound)
 app.use(handleError)
