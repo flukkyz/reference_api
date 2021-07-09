@@ -9,11 +9,11 @@ module.exports = {
   index: async (req, res) => {
     const { 
       q,
-      	geography_id
+      geography_id
     } = req.query
 
     let where = {}
-    if(	geography_id && 	geography_id !== 'null' && 	geography_id !== ''){
+    if(	geography_id &&	geography_id !== 'null' && 	geography_id !== ''){
       where = {
         ...where,
         ...{

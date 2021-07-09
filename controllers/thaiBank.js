@@ -4,13 +4,32 @@ const Op = db.Sequelize.Op;
 
 module.exports = {
   index: async (req, res) => {
-    const { q } = req.query
+    const { 
+      q,
+      active
+    } = req.query
 
-    let where = q ? { [Op.or]: [
-        {code: { [Op.like]: `%${q}%` }},
-        {name_th: { [Op.like]: `%${q}%` }},
-        {name_en: { [Op.like]: `%${q}%` }}
-    ] } : null
+    let where = {}
+    if(	active && ['0','1'].includes(active)){
+      where = {
+        ...where,
+        ...{
+          	active
+        }
+      }
+    }
+    if(q){
+      where = {
+        ...where,
+        ...{ 
+          [Op.or]: [
+            {code: { [Op.like]: `%${q}%` }},
+            {name_th: { [Op.like]: `%${q}%` }},
+            {name_en: { [Op.like]: `%${q}%` }}
+          ]
+        }
+      }
+    }
 
     try {
       const lists = await ThaiBank.findAll({ where })

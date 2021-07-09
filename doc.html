@@ -54,6 +54,7 @@
 
   .lists,.show,.show-all{
     margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   .table-of-content{
@@ -88,17 +89,17 @@
 
 <body>
   <div id="top"/>
-  <div class="btn-to-top">
-    <a href="#top" type="button" class="rounded-circle">
-      Back
-      <br>
-      To Top
-    </a>
-  </div>
   <div class="jumbotron text-center">
     <h1>MIS Common References API</h1>
     <p>Public Common reference api document to use in dropdown or selection component for MIS developer and CMU developer</p>
   </div>
+  <a href="#top" type="button" class="rounded-circle">
+    <div class="btn-to-top">
+      Back
+      <br>
+      To Top
+    </div>
+  </a>
 
   <div class="container">
     <div class="table-of-content">
@@ -4169,6 +4170,22 @@
                       ค้นหารหัสธนาคาร, ชื่อธนาคาร
                     </td>
                   </tr>
+                  <tr>
+                    <td class="text-center">
+                      <span class="badge badge-info">active</span>
+                    </td>
+                    <td class="text-center">
+                      Integer
+                    </td>
+                    <td class="text-center">
+                    </td>
+                    <td class="text-center">
+                      
+                    </td>
+                    <td>
+                      สถานะธนาคาร 1 = เปิดการใช้งาน, 0 = ปิดการใช้งาน
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -4208,7 +4225,8 @@
       id: 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
       code: "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
       name_th: "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-      name_en: "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      name_en: "Siam Commercial Bank", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+      active: true &nbsp;<span class="text-muted font-weight-light">// (Boolean) สถานะธนาคาร</span>
     },...,
   ]
 </pre>
@@ -4324,7 +4342,8 @@
     id: 5, &nbsp;<span class="text-muted font-weight-light">// (int) PK</span>
     code: "SCB", &nbsp;<span class="text-muted font-weight-light">// (String) รหัสธนาคาร</span>
     name_th: "ธนาคารไทยพาณิชย์", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาไทย</span>
-    name_en: "Siam Commercial Bank" &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    name_en: "Siam Commercial Bank", &nbsp;<span class="text-muted font-weight-light">// (String) ชื่อเต็มภาษาอังกฤษ</span>
+    active: true &nbsp;<span class="text-muted font-weight-light">// (Boolean) สถานะธนาคาร</span>
   }
 </pre>
                   </code>
