@@ -33,7 +33,16 @@ module.exports = {
 
     try {
       const lists = await ThaiBank.findAll({ where })
-      return res.json(lists)
+      return res.json(lists.map((ele) => {
+        return {
+          id: ele.id,
+          code: ele.code,
+          name_th: ele.name_th,
+          name_en: ele.name_en,
+          icon: `${process.env.BASE_URL}/thai-banks/${ele.code}.png`,
+          active: ele.active
+        }
+      }))
     } catch (e) {
       return res.status(500).json({
         message: 'Cannot get data from database.'
